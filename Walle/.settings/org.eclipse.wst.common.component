@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Walle">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
+        <dependent-module archiveName="WalleCore.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WalleCore/WalleCore">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="WalleEasyui.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WalleEasyui/WalleEasyui">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="WallePlatform.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WallePlatform/WallePlatform">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="WalleDemo.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WalleDemo/WalleDemo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="WalleSystem.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WalleSystem/WalleSystem">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="Walle"/>
+        <property name="java-output-path" value="/Walle/WebContent/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>

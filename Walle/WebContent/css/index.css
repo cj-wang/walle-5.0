@@ -1,0 +1,15 @@
+
+.head a{color:White;text-decoration:underline;}
+
+#nav ul{list-style-type:none;margin:0px; padding:10px;}
+#nav ul li{ padding:0px;}
+#nav ul li a{line-height:24px; display:block; text-decoration:none;}
+#nav ul li div{margin:2px 0px;}
+#nav ul li div.hover{border:1px dashed #99BBE8; background:#e6e6e6;cursor:pointer;}
+#nav ul li div.hover a{color:#777777;}
+#nav ul li div.selected{border:1px solid #99BBE8; background:#e6e6e6;cursor:default;}
+#nav ul li div.selected a{color:#777777; font-weight:bold;}
+
+.icon{ background:url(../images/tabicons.png) no-repeat;width:18px; line-height:18px; display:inline-block;}
+.icon-sys{ background-position:0px -200px;}
+.icon-nav{background-position: -100px -20px; }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				
+				<!-- simple trigger demo -->
+				<!-- start delay 10 seconds, repeat every 50 seconds -->
+				<!-- 
+				<bean class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+					<property name="jobDetail">
+						<bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+							<property name="targetObject" ref="xxxManager" />
+							<property name="targetMethod" value="xxx" />
+							<property name="concurrent" value="false" />
+						</bean>
+					</property>
+					<property name="startDelay" value="10000" />
+					<property name="repeatInterval" value="50000" />
+				</bean>
+				 -->
+				
+				<!-- cron trigger demo -->
+				<!-- run every morning at 6 AM -->
+				<!-- 
+				<bean class="org.springframework.scheduling.quartz.CronTriggerBean">
+					<property name="jobDetail">
+						<bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+							<property name="targetObject" ref="xxxManager" />
+							<property name="targetMethod" value="xxx" />
+							<property name="concurrent" value="false" />
+						</bean>
+					</property>
+					<property name="cronExpression" value="0 0 6 * * ?" />
+				</bean>
+				 -->
+				
+			</list>
+		</property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,127 @@
+Walle
+
+20130416
+	5.0初始版本
+
+20130417
+	dwr.xml配置增加Exception和String[]的converter
+	index.jsp bug：空菜单组报错
+
+20130418
+	增加用户管理，主页和登陆页，security配置文件
+
+20130419
+	防止主页加载时瞬间显示修改密码的form
+
+20130425
+	hibernate show sql打开
+	增加全局js变量locale，debugMode，devMode
+	
+20130427
+	主菜单分级别：平台P、系统S
+	
+20130502
+	index.jsp tabs改名，避免冲突
+	index.jsp tab事件判断id，防止功能内部的tab页触发同样事件	
+
+20130503
+	index.jsp 修改密码窗口位置居中
+	
+20130504
+	tab页右键增加新窗口弹出页面，可debug
+	
+20130506
+	删除index.css中a的样式
+	默认default主题，主页可选
+	
+20130507
+	index.jsp，动态页面支持url，可配多个菜单使用一个页面，传入不同参数
+	dynamicPageWrapper.jsp，将url参数转换为js变量，页面内可直接引用
+	
+20130509
+	打开动态页面时，dev模式下取开发板页面；正常模式下取发布版页面，不显示页面编辑按钮
+
+20130514
+	主页增加用户信息编辑
+	
+20130515
+	主页修改，ie7、8兼容性问题
+	CFInstall.jsp，修改chrome frame安装提示
+	
+20130516
+	增加静态代码转换配置，在xml中配置
+	walle platform菜单改为js里写死，不再数据库配置，index.jsp和include.jsp做相应修改
+
+20130517
+	增加子工程WalleSystem
+	主页修改，使用wl服务修改密码和用户信息
+	
+20130520
+	主页修改，使用wl_function菜单表
+	撤销20130516中wp菜单在js写死的处理，改回数据库配置
+	使用wl_sys_code代码表
+
+20130522
+	getDynamicPageUrl从主页移到walle-platform.js，新窗口打开的页面也可以取到地址再打开动态页面window
+	同时修改ajaxPageWrapper.jsp，总是使用绝对路径
+	
+20130529
+	主页js分离，用户信息和修改密码页面放到walle-system工程中
+
+20130531
+	主页js增加openWindow函数，可打开ajax、iframe和动态页面，功能类似addTab
+	
+20130604
+	include.jsp增加引用jquery.numberformatter-1.2.3.js和jshashtable-2.1_src.js
+	
+20130607
+	bug：openWindow如果有onClose事件无法正常销毁
+
+20130608
+	dynamicPageWrapper.jsp 增加static html
+	
+20130609
+	index.css删除无用内容
+	
+20130614
+	dynamicPageWrapper.jsp static html用iframe保持editor原始格式
+
+20130617
+    portal 功能实现
+	改在 applicationContext-aop.xml 里定义SystemLogger, 默认注释掉以关闭日志功能
+
+20130618
+    portal 功能中用的js入到wallesystem中
+
+20130627
+	index.js增加判断页面功能权限方法checkFunctionAuthorization
+20130704
+    iframe 支持换肤功能
+
+20130705
+	多机构用户支持
+
+20130712
+	editPass.jsp & userInfo.jsp目录修改
+	
+20130718
+	ajaxPageWrapper.jsp中后台查询当前用户和权限列表
+	
+20130822
+	ajaxPageWrapper.jsp移到根目录，增加openWindow()
+	TenantAwareDaoAspect移到walle-system，aop配置文件相应修改
+	
+20130829
+	stateless session, applicationContext-security.xml
+	
+20130903
+	TenantAwareDaoAspect移至walle-core
+	
+20140204
+	增加 dwr DynamicModelConverter，支持details集合
+	
+20140320
+	dwr配置文件，增加新converter，Object类型参数优先转换为Map或者List
+	
+	
+	

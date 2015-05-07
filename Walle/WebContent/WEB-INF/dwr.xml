@@ -1,0 +1,25 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.ltd.uk/dwr/dwr20.dtd">
+<dwr>
+	<init>
+		<converter class="cn.walle.framework.core.support.dwr.CustomBeanConverter" id="customBean" />
+		<converter class="cn.walle.framework.core.support.dwr.CustomStringConverter" id="customString" />
+		<converter class="cn.walle.framework.core.support.dwr.FormatStringDateConverter" id="customDate" />
+		<converter class="cn.walle.framework.core.support.dwr.BaseObjectConverter" id="baseObject" />
+		<converter class="cn.walle.framework.core.support.dwr.DynamicModelConverter" id="dynamicModel" />
+	</init>
+	
+    <allow>
+<!-- 		<convert match="java.lang.Object" converter="bean"/> -->
+		<convert match="java.lang.Object" converter="customBean"/>
+		<convert match="java.lang.String" converter="customString"/>
+		<convert match="java.util.Date" converter="customDate"/>
+		<convert match="java.sql.Timestamp" converter="customDate"/>
+		<convert match="[Ljava.lang.String;" converter="array"/>
+		<convert match="cn.walle.framework.core.model.BaseObject" converter="baseObject"/>
+		<convert match="cn.walle.framework.core.model.DynamicModelClass" converter="dynamicModel"/>
+		<convert match="[Lcn.walle.framework.core.model.DynamicModelClass;" converter="array"/>
+		<convert match="java.lang.Exception" converter="exception"/>
+    </allow>
+</dwr>

@@ -1,0 +1,18 @@
+*{margin:0px; padding:0px;font-family: Arial, Helvetica, sans-serif;clolr:#5a5a5b; word-break: break-all;}
+body{font-size:12px;background:#ffffff;color:#333;margin:0 auto;}
+
+/*font color*/
+.f_blue{color:#184c7a; text-decoration:underline; font-weight:bold}
+.f_red{color:red;}
+
+/**login**/
+.login{width:1024px;height:512px; background:url(../images/login.gif) no-repeat; margin:0 auto; padding-top:88px;}
+.loginDiv{ width:443px; height:342px; margin:0 auto;}
+.sysLogo{ background: url(../images/login_logo.gif) no-repeat; width:338px; height:71px;}
+.loginTop{ background:url(../images/login_top.gif) no-repeat; width:443px; height:72px;}
+.loginBottom{ background:url(../images/login_bottom.gif) no-repeat; width:443px; height:199px; text-align:center;}
+.loginBottom table{ line-height:32px;}
+.loginBottom table th{ width:100px; text-align:right; font-weight:lighter;}
+.loginBottom table td{ text-align:left; padding-left:5px;}
+.iput_bnt{ background:url(../images/login_bnt.gif) left top no-repeat; width:58px; height:26px; color:#fff; border:0;}
+.iput_bnt:hover{ background:url(../images/login_bnt_over.gif) left top no-repeat; width:58px; height:26px; cursor:hand; border:0;}
