@@ -1,0 +1,24 @@
+Walle Lib
+
+20130416
+	5.0初始版本
+	依赖包升级
+
+20130426
+	升级freemarker到2.3.15
+
+20130608
+	增加CKEditor
+	
+20130725
+	增加CKfinder   整合CKEditor和CKfinder
+	
+20140320
+	spring升级为3.2.6
+	增加mongo-java-driver-2.11.3.jar
+	增加spring-data-commons-1.7.0.RELEASE.jar
+	增加spring-data-mongodb-1.4.0.RELEASE.jar
+	增加groovy-all-2.2.2.jar
+	
+	
+	
