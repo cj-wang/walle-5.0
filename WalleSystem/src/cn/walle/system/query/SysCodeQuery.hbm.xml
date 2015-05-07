@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="SysCodeQuery">
+		<![CDATA[
+
+select c.*
+  from wl_sys_code c
+ where c.code_type_id = :codeType
+ <<and (c.tenant_id = '1' or c.tenant_id = :tenantId)>>
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

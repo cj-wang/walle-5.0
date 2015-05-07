@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="UserInfoByOrgInfoQuery">
+		<![CDATA[
+
+select o.organize_id,o.name orgname,o.manage, u.login_name,u.name username,u.REPORT_TO_USER_ID,u.home_tel,
+	u.office_tel,u.mobile_tele,u.email,u.addr_id,u.state
+	from wl_user u, wl_organize o
+       where u.organize_id = o.organize_id
+     <<and o.name= :name>>
+     <<and o.manage= :manage>>
+	<<and o.organize_id= :organizeId>>
+	and u.state !='S'
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

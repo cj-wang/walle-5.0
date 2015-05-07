@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="WlNotificationHis.ALL" parent="fieldListDefinition">
+		<constructor-arg>
+			<list>
+				<ref bean="WlNotificationHis.userId" />
+				<ref bean="WlNotificationHis.type" />
+				<ref bean="WlNotificationHis.subject" />
+				<ref bean="WlNotificationHis.content" />
+				<ref bean="WlNotificationHis.actionTarget" />
+				<ref bean="WlNotificationHis.sourceId" />
+				<ref bean="WlNotificationHis.readTime" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="WlNotificationHis.notificationHisId" parent="fieldDefinition">
+		<property name="fieldName" value="notificationHisId" />
+		<property name="label" value="提醒编号" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="false" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlNotificationHis.userId" parent="fieldDefinition">
+		<property name="fieldName" value="userId" />
+		<property name="label" value="用户编号" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlNotificationHis.type" parent="fieldDefinition">
+		<property name="fieldName" value="type" />
+		<property name="label" value="提醒类型" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="128" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlNotificationHis.subject" parent="fieldDefinition">
+		<property name="fieldName" value="subject" />
+		<property name="label" value="标题" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="512" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlNotificationHis.content" parent="fieldDefinition">
+		<property name="fieldName" value="content" />
+		<property name="label" value="提醒内容" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="2048" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlNotificationHis.actionTarget" parent="fieldDefinition">
+		<property name="fieldName" value="actionTarget" />
+		<property name="label" value="执行目标" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="512" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlNotificationHis.sourceId" parent="fieldDefinition">
+		<property name="fieldName" value="sourceId" />
+		<property name="label" value="来源ID" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="50" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlNotificationHis.createTime" parent="fieldDefinition">
+		<property name="fieldName" value="createTime" />
+		<property name="label" value="创建时间" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="WlNotificationHis.readTime" parent="fieldDefinition">
+		<property name="fieldName" value="readTime" />
+		<property name="label" value="readTime" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+</beans>

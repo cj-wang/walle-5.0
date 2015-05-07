@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="RoleGrantedUserQuery">
+		<![CDATA[
+
+select b.role_user_id,a.*
+ from wl_user_role b,wl_user a
+     where a.user_id=b.user_id
+ <<and b.role_id = :roleId>>
+   and ##CONDITIONS##
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

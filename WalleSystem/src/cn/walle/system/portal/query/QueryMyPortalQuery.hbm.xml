@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="QueryMyPortalQuery">
+		<![CDATA[
+
+select t.myportlet_id
+,t.user_id,
+ t.portlet_id
+,t1.portlet_name
+,t1.title
+,t.seq
+,t.column_index
+,t1.screenshot
+,t1.src
+,t1.width
+,t1.height
+,t1.icon
+ from wl_portal_myportlet t 
+ left join wl_portal_portlet t1 on t1.portlet_id = t.portlet_id
+ where 1=1
+ and t1.status='U'
+ and t.user_id =:userId
+ order by t.column_index,t.seq
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

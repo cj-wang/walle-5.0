@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- DEMO -->
+	<!-- 
+	<bean id="selectCode.ALL_USERS" parent="selectCodeDefinition">
+		<property name="queryType" value="SysUserModel" />
+		<property name="queryFields">
+			<list>
+				<bean parent="queryField">
+					<property name="fieldName" value="nvl(usrIsDeleted, '0')" />
+					<property name="operator" value="&lt;&gt;" />
+					<property name="fieldValue" value="1" />
+				</bean>
+				<bean parent="queryField">
+					<property name="fieldName" value="orgId" />
+					<property name="operator" value="=" />
+					<property name="fieldStringValue" value="orgModel.orgId" />
+					<property name="fieldType" value="session" />
+				</bean>
+			</list>
+		</property>
+		<property name="orderBy" value="usrRealName" />
+		<property name="keyFieldName" value="usrUserName" />
+		<property name="labelFieldName" value="usrRealName" />
+		<property name="parentFieldName" value="priorUserId" />
+		<property name="localedLabelFieldNames">
+			<map>
+				<entry key="zh_CN" value="usrChineseName" />
+			</map>
+		</property>
+		<property name="columns">
+			<list>
+				<map>
+					<entry key="field" value="usrUserName" />
+				</map>
+				<map>
+					<entry key="field" value="usrRealName" />
+				</map>
+				<map>
+					<entry key="field" value="orgId" />
+					<entry key="codeType" value="ALL_ORGS_UUID" />
+				</map>
+			</list>
+		</property>
+		<property name="i18nRoot" value="SysUserModel" />
+	</bean>
+	
+	<bean id="selectCode.YESNO" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.YESNO.DataSource" />
+	</bean>
+	<bean id="selectCode.YESNO.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="是"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="0"/>
+					<property name="label" value="否"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	 -->
+
+	<bean id="selectCode.ALL_USERS" parent="selectCodeDefinition">
+		<property name="queryType" value="SysUserModel" />
+		<property name="orderBy" value="userName" />
+		<property name="keyFieldName" value="userCode" />
+		<property name="labelFieldName" value="userName" />
+	</bean>
+
+	<bean id="selectCode.ALL_ORGS" parent="selectCodeDefinition">
+		<property name="queryType" value="SysOfficeModel" />
+		<property name="orderBy" value="officeName" />
+		<property name="keyFieldName" value="officeUuid" />
+		<property name="labelFieldName" value="officeName" />
+		<property name="parentFieldName" value="preOfficeUuid" />
+		<property name="localedLabelFieldNames">
+			<map>
+				<entry key="en" value="officeNameEn" />
+			</map>
+		</property>
+		<property name="columns">
+			<list>
+				<map>
+					<entry key="field" value="officeCode" />
+				</map>
+				<map>
+					<entry key="field" value="officeName" />
+				</map>
+				<map>
+					<entry key="field" value="preOfficeUuid" />
+					<entry key="codeType" value="ALL_ORGS_UUID" />
+				</map>
+			</list>
+		</property>
+		<property name="i18nRoot" value="SysOffice" />
+	</bean>
+	
+	<bean id="selectCode.ALL_ORGS_UUID" parent="selectCodeDefinition">
+		<property name="queryType" value="SysOfficeModel" />
+		<property name="orderBy" value="officeCode" />
+		<property name="keyFieldName" value="officeUuid" />
+		<property name="labelFieldName" value="officeName" />
+		<property name="localedLabelFieldNames">
+			<map>
+				<entry key="en" value="officeNameEn" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="selectCode.CUSTOMER" parent="selectCodeDefinition">
+		<property name="queryType" value="BasCustomerModel" />
+<!--		<property name="orderBy" value="customerCode" />-->
+		<property name="keyFieldName" value="customerCode" />
+		<property name="labelFieldName" value="customerName" />
+		<property name="localedLabelFieldNames">
+			<map>
+				<entry key="en" value="customerNameEn" />
+			</map>
+		</property>
+		<property name="columns">
+			<list>
+				<map>
+					<entry key="field" value="customerCode" />
+				</map>
+				<map>
+					<entry key="field" value="customerName" />
+				</map>
+				<map>
+					<entry key="field" value="customerNameEn" />
+				</map>
+			</list>
+		</property>
+		<property name="i18nRoot" value="BasCustomer" />
+	</bean>
+	
+	<bean id="selectCode.CONTAINER_TYPE" parent="selectCodeDefinition">
+		<property name="queryType" value="BasContainerTypeModel" />
+		<property name="orderBy" value="containerType" />
+		<property name="keyFieldName" value="containerType" />
+		<property name="labelFieldName" value="containerType" />
+	</bean>
+	
+</beans>

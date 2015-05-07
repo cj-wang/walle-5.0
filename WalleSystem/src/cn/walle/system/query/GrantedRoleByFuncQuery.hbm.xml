@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="GrantedRoleByFuncQuery">
+		<![CDATA[
+
+select a.* 
+ from wl_role a,wl_role_func b 
+ where a.role_id=b.role_id 
+ <<and b.func_id=:funcId>>
+   and ##CONDITIONS##
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

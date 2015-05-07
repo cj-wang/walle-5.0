@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="TenantFunctionsQuery">
+		<![CDATA[
+
+select f.*
+  from wl_function f
+ where 1 = 1
+ <<and ((f.tenant_id = '1' or f.tenant_id = :tenantId) and (f.sys is null or f.sys = :tenantId))>>
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

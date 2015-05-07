@@ -1,0 +1,119 @@
+Walle System
+
+20130520
+	5.0初始版本
+	
+20130523
+	添加国际化文件
+	
+20130524
+	1.jsp页面的修改：组要修改页面的显示效果和明显的BUG
+		{1}组织管理：修改了组织列表的操作方式，当点击跟组织“系统”时，出现异常，正查找并修改
+		{2}用户管理，功能管理等等，修改bug，同时修改显示效果。
+		{3}目前有些系统管理页面还存在一些BUG，正在修改，如果发现直接截图发给我就行，谢谢！
+	2,java文件修改：
+		system文件夹下Query文件夹中   ，新增了一个query：用户模糊查询组织  Query名称为：FindOrgByNameOrManageQuery
+		servcice 文件中  WlOrganizeManager新增了一个方法：用户模糊查询组织，  方法名为：findOrgByNameManage
+	3,数据库的修改 ，目前我用的是orcale
+		组织表：wl_organize 查看是否有TS_ID列，若果没有，需加上， TS_ID   varchar2  (100)
+	4，其他
+		selectCode增加了，organizeId,funcId,userId 的显示
+
+20130529
+	增加用户信息修改和密码修改页面，主页调用
+	
+20130606
+	实现 服务日志和sql日志接口
+	
+20130609
+	功能完善
+	
+20130609
+	poatal功能实现
+	
+20130613
+	user.jsp优化
+	
+20130617
+	改在 applicationContext-aop.xml 里定义SystemLogger, 默认注释掉以关闭日志功能
+	
+20130618
+	功能优化
+	poatal功能中的js 放到wallesystem中
+	
+20130623
+	页面整合	
+	
+20130624
+	OrgUserAsyncTreeCheckedByRoleQuery and OrgUserAsyncTreeCheckedByFuncQuery
+		mysql中''和null不等价，所以:parentId is null后加上 or :parentId = ''
+		||改为concat函数，mysql支持
+	
+20130625
+	orgUserTree直接列出非叶节点org下的用户
+
+20130626
+    
+	把该项目中用到 WP_YESNO  syscode的全部改成了 yesno
+	func页面授权时，同时为父节点授权，否则菜单不显示
+
+20130627
+	支持页面功能权限
+
+20130703
+	portalLIst图片路径为相对路径
+
+20130705
+	多机构用户支持
+	
+20130725
+	公告管理实现
+
+20130712
+	租户注册
+
+20130716
+	使用function表的sys字段表示该菜单专属某机构用户使用，null为不限制
+	平台开发相关的菜单sys设置为1，只对平台用户显示
+
+201300718
+	修改后台方法返回值，通过异常报错
+
+20130808
+	样式调整，dialog加宽，适应boot theme
+	
+20130812
+	portal 扶持IE
+
+20130816
+	公告修改    
+
+20130820
+	currentUser增加authorizedFunctions
+
+20130828
+	公告优化	
+	
+20130822
+	TenantAwareDaoAspect移到walle-system
+	修改机构用户注册页面
+	
+20130829
+	SessionContextUserEntity去掉冗余属性，stateless session cookie存储体积减小
+
+20130903
+	TenantAwareDaoAspect移至walle-core
+	
+20130922
+	优化公告
+	
+20140802
+	WlUserManagerImpl.changePassword从数据库查旧密码，session中为null
+	打包java源码到jar包
+
+20141229
+	SessionContextUserEntity无tenantId时不查询tenant model
+
+
+
+

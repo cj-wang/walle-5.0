@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="WlPortalMyportlet.ALL" parent="fieldListDefinition">
+		<constructor-arg>
+			<list>
+				<ref bean="WlPortalMyportlet.userId" />
+				<ref bean="WlPortalMyportlet.portletId" />
+				<ref bean="WlPortalMyportlet.width" />
+				<ref bean="WlPortalMyportlet.height" />
+				<ref bean="WlPortalMyportlet.seq" />
+				<ref bean="WlPortalMyportlet.columnIndex" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="WlPortalMyportlet.myportletId" parent="fieldDefinition">
+		<property name="fieldName" value="myportletId" />
+		<property name="label" value="myportletId" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="false" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.userId" parent="fieldDefinition">
+		<property name="fieldName" value="userId" />
+		<property name="label" value="userId" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.portletId" parent="fieldDefinition">
+		<property name="fieldName" value="portletId" />
+		<property name="label" value="portletId" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.width" parent="fieldDefinition">
+		<property name="fieldName" value="width" />
+		<property name="label" value="width" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="10" />
+		<property name="width" value="100" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.height" parent="fieldDefinition">
+		<property name="fieldName" value="height" />
+		<property name="label" value="height" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="10" />
+		<property name="width" value="100" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.seq" parent="fieldDefinition">
+		<property name="fieldName" value="seq" />
+		<property name="label" value="seq" />
+		<property name="fieldType" value="int" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="precision" value="5" />
+		<property name="width" value="100" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.columnIndex" parent="fieldDefinition">
+		<property name="fieldName" value="columnIndex" />
+		<property name="label" value="columnIndex" />
+		<property name="fieldType" value="int" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="precision" value="5" />
+		<property name="width" value="100" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.creator" parent="fieldDefinition">
+		<property name="fieldName" value="creator" />
+		<property name="label" value="creator" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.createTime" parent="fieldDefinition">
+		<property name="fieldName" value="createTime" />
+		<property name="label" value="createTime" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.modifier" parent="fieldDefinition">
+		<property name="fieldName" value="modifier" />
+		<property name="label" value="modifier" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.modifyTime" parent="fieldDefinition">
+		<property name="fieldName" value="modifyTime" />
+		<property name="label" value="modifyTime" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="WlPortalMyportlet.recVer" parent="fieldDefinition">
+		<property name="fieldName" value="recVer" />
+		<property name="label" value="recVer" />
+		<property name="fieldType" value="int" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="precision" value="10" />
+		<property name="width" value="100" />
+	</bean>
+
+</beans>

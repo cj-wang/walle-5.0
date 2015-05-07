@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="OaAnnouncement.ALL" parent="fieldListDefinition">
+		<constructor-arg>
+			<list>
+				<ref bean="OaAnnouncement.userId" />
+				<ref bean="OaAnnouncement.orgId" />
+				<ref bean="OaAnnouncement.addtime" />
+				<ref bean="OaAnnouncement.endtime" />
+				<ref bean="OaAnnouncement.title" />
+				<ref bean="OaAnnouncement.publishtime" />
+				<ref bean="OaAnnouncement.content" />
+				<ref bean="OaAnnouncement.attachment" />
+				<ref bean="OaAnnouncement.announcePic" />
+				<ref bean="OaAnnouncement.examineStatus" />
+				<ref bean="OaAnnouncement.suggestion" />
+				<ref bean="OaAnnouncement.checker" />
+				<ref bean="OaAnnouncement.isEmergent" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="OaAnnouncement.announcementId" parent="fieldDefinition">
+		<property name="fieldName" value="announcementId" />
+		<property name="label" value="公告编号" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="false" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.userId" parent="fieldDefinition">
+		<property name="fieldName" value="userId" />
+		<property name="label" value="添加的用户" />
+		<property name="fieldType" value="selectCode.user" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.orgId" parent="fieldDefinition">
+		<property name="fieldName" value="orgId" />
+		<property name="label" value="添加的部门" />
+		<property name="fieldType" value="selectCode.org" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.addtime" parent="fieldDefinition">
+		<property name="fieldName" value="addtime" />
+		<property name="label" value="添加时间" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="OaAnnouncement.endtime" parent="fieldDefinition">
+		<property name="fieldName" value="endtime" />
+		<property name="label" value="失效时间" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="OaAnnouncement.title" parent="fieldDefinition">
+		<property name="fieldName" value="title" />
+		<property name="label" value="标题" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="100" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.creator" parent="fieldDefinition">
+		<property name="fieldName" value="creator" />
+		<property name="label" value="creator" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.createTime" parent="fieldDefinition">
+		<property name="fieldName" value="createTime" />
+		<property name="label" value="createTime" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="OaAnnouncement.modifier" parent="fieldDefinition">
+		<property name="fieldName" value="modifier" />
+		<property name="label" value="modifier" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.modifyTime" parent="fieldDefinition">
+		<property name="fieldName" value="modifyTime" />
+		<property name="label" value="modifyTime" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="OaAnnouncement.recVer" parent="fieldDefinition">
+		<property name="fieldName" value="recVer" />
+		<property name="label" value="recVer" />
+		<property name="fieldType" value="int" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="precision" value="10" />
+		<property name="width" value="100" />
+	</bean>
+
+	<bean id="OaAnnouncement.publishtime" parent="fieldDefinition">
+		<property name="fieldName" value="publishtime" />
+		<property name="label" value="发布时间" />
+		<property name="fieldType" value="datetime" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="width" value="190" />
+	</bean>
+
+	<bean id="OaAnnouncement.content" parent="fieldDefinition">
+		<property name="fieldName" value="content" />
+		<property name="label" value="内容" />
+		<property name="fieldType" value="text" />
+		<property name="sortable" value="false" />
+		<property name="nullable" value="true" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.attachment" parent="fieldDefinition">
+		<property name="fieldName" value="attachment" />
+		<property name="label" value="附件uuid" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="1000" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.announcePic" parent="fieldDefinition">
+		<property name="fieldName" value="announcePic" />
+		<property name="label" value="announcePic" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.examineStatus" parent="fieldDefinition">
+		<property name="fieldName" value="examineStatus" />
+		<property name="label" value="examineStatus" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="20" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.suggestion" parent="fieldDefinition">
+		<property name="fieldName" value="suggestion" />
+		<property name="label" value="suggestion" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="300" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.checker" parent="fieldDefinition">
+		<property name="fieldName" value="checker" />
+		<property name="label" value="checker" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="OaAnnouncement.isEmergent" parent="fieldDefinition">
+		<property name="fieldName" value="isEmergent" />
+		<property name="label" value="紧急" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="10" />
+		<property name="width" value="100" />
+	</bean>
+
+</beans>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- DEMO -->
+	<!-- 
+	<bean id="selectCode.ALL_USERS" parent="selectCodeDefinition">
+		<property name="queryType" value="SysUserModel" />
+		<property name="queryFields">
+			<list>
+				<bean parent="queryField">
+					<property name="fieldName" value="nvl(usrIsDeleted, '0')" />
+					<property name="operator" value="&lt;&gt;" />
+					<property name="fieldValue" value="1" />
+				</bean>
+				<bean parent="queryField">
+					<property name="fieldName" value="orgId" />
+					<property name="operator" value="=" />
+					<property name="fieldStringValue" value="orgModel.orgId" />
+					<property name="fieldType" value="session" />
+				</bean>
+			</list>
+		</property>
+		<property name="orderBy" value="usrRealName" />
+		<property name="keyFieldName" value="usrUserName" />
+		<property name="labelFieldName" value="usrRealName" />
+		<property name="parentFieldName" value="priorUserId" />
+		<property name="localedLabelFieldNames">
+			<map>
+				<entry key="zh_CN" value="usrChineseName" />
+			</map>
+		</property>
+		<property name="columns">
+			<list>
+				<map>
+					<entry key="field" value="usrUserName" />
+				</map>
+				<map>
+					<entry key="field" value="usrRealName" />
+				</map>
+				<map>
+					<entry key="field" value="orgId" />
+					<entry key="codeType" value="ALL_ORGS_UUID" />
+				</map>
+			</list>
+		</property>
+		<property name="i18nRoot" value="SysUserModel" />
+	</bean>
+	
+	<bean id="selectCode.YESNO" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.YESNO.DataSource" />
+	</bean>
+	<bean id="selectCode.YESNO.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="是"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="0"/>
+					<property name="label" value="否"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	 -->
+  <bean id="selectCode.DISPLAY" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.DISPLAY.DataSource" />
+	</bean>
+	<bean id="selectCode.DISPLAY.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="显示"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="0"/>
+					<property name="label" value="不显示"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="selectCode.yesNo" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.yesNo.DataSource" />
+	</bean>
+	<bean id="selectCode.yesNo.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="是"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="0"/>
+					<property name="label" value="否"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="selectCode.user_status" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.user_status.DataSource" />
+	</bean>
+	<bean id="selectCode.user_status.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="U"/>
+					<property name="label" value="使用"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="F"/>
+					<property name="label" value="禁用"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="selectCode.COLUMN_INDEX" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.COLUMN_INDEX.DataSource" />
+	</bean>
+	<bean id="selectCode.COLUMN_INDEX.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value= "0"/>
+					<property name="label" value="左"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="中"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="2"/>
+					<property name="label" value="右"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="selectCode.org" parent="selectCodeDefinition">
+		<property name="queryType" value="WlOrganizeModel" />
+		<property name="orderBy" value="name" />
+		<property name="queryFields">
+			<list>
+				<bean parent="queryField">
+					<property name="fieldName" value="state" />
+					<property name="fieldValue" value="U" />
+				</bean>
+			</list>
+		</property>
+		<property name="keyFieldName" value="organizeId" />
+		<property name="labelFieldName" value="name" />
+		<property name="parentFieldName" value="parentOrganizeId" />
+	</bean>
+	
+	<bean id="selectCode.sysfunction" parent="selectCodeDefinition">
+		<property name="queryType" value="WlFunctionModel" />		
+		<property name="orderBy" value="" />
+		<property name="keyFieldName" value="funcId" />
+		<property name="labelFieldName" value="name" />
+	</bean>
+		
+	<bean id="selectCode.user" parent="selectCodeDefinition">
+		<property name="queryType" value="WlUserModel" />
+		<property name="orderBy" value="name" />
+		<property name="queryFields">
+			<list>
+				<bean parent="queryField">
+					<property name="fieldName" value="state" />
+					<property name="operator" value="&lt;&gt;" />
+					<property name="fieldValue" value="S" />
+				</bean>
+			</list>
+		</property>
+		<property name="keyFieldName" value="userId" />
+		<property name="labelFieldName" value="name" />
+	</bean>
+	<bean id="selectCode.orgUserId" parent="selectCodeDefinition">
+	<property name="queryType" value="OrgUserQuery" />
+	<property name="orderBy" value="typeOrder" />
+	<property name="keyFieldName" value="id" />
+	<property name="labelFieldName" value="name" />
+	<property name="parentFieldName" value="parentId" />
+	</bean>
+	
+	
+	<bean id="selectCode.examineStatus" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.examineStatus.DataSource" />
+	</bean>
+	<bean id="selectCode.examineStatus.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="送审中"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="2"/>
+					<property name="label" value="审核不通过"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="3"/>
+					<property name="label" value="审核通过"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="selectCode.isEmergent" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.isEmergent.DataSource" />
+	</bean>
+	<bean id="selectCode.isEmergent.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="重要"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="0"/>
+					<property name="label" value="一般"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="selectCode.readFlag" parent="staticSelectCodeDefinition">
+		<property name="queryType" value="selectCode.readFlag.DataSource" />
+	</bean>
+	<bean id="selectCode.readFlag.DataSource" parent="staticSelectCodeDataSource">
+		<property name="data">
+			<list>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="1"/>
+					<property name="label" value="未读"/>
+				</bean>
+				<bean parent="staticSelectCodeDataSourceItem">
+					<property name="key" value="2"/>
+					<property name="label" value="已读"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>

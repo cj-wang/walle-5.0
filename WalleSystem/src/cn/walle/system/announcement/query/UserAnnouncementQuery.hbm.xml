@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="UserAnnouncementQuery">
+		<![CDATA[
+
+ select anc.* ,uanc.id,uanc.read_flag,uanc.feed_status
+from oa_announcement anc ,oa_user_announcement uanc 
+where uanc.announcement_id=anc.announcement_id 
+<<and uanc.read_flag=:readFlag>>
+<<and uanc.receive_user_id=:userid>>
+<<and anc.title like '%' || :title || '%'>>
+<<and anc.publishtime>=:startime>>
+<<and anc.publishtime<=:endtime>>
+order by uanc.read_flag,anc.IS_EMERGENT desc,anc.publishtime desc
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

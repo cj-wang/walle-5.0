@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="AsyncMenuQuery">
+		<![CDATA[
+
+select t.*, 'closed' as state
+  from wp_main_menu t
+ where t.parent_uuid = '0'
+   and :parentId is null
+union all
+select t.*, 'open' as state
+  from wp_main_menu t
+ where t.parent_uuid = :parentId
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

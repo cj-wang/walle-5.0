@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="UserNoGrantedRoleQuery">
+		<![CDATA[
+select * from wl_role  
+		 where role_id not in (select role_id from wl_user_role  where 1=1
+		<<	and user_id=:userId >>
+		 and ##CONDITIONS##)
+		]]>
+	</sql-query>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="OrgUserQuery">
+		<![CDATA[
+
+/*第一次查询，取出非叶节点org的用户，直接列出*/
+select u.user_id as id,
+       u.name as name,
+       concat('org__', u.organize_id) as parent_id,
+       'open' as state,
+       1 as type_order
+  from wl_user u
+ where state <> 'S'
+
+union all
+
+/*第一次查询，取出所有org，叶节点为closed*/
+select concat('org__', o.organize_id) as id,
+       o.name as name,
+       concat('org__', o.parent_organize_id) as parent_id,
+      'null' as state,
+       2 as type_order
+  from wl_organize o
+ where state='U'
+and (:parentId is null or :parentId = '')
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

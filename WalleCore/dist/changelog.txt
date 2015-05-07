@@ -1,0 +1,120 @@
+Walle Core
+
+20130416
+	5.0初始版本
+
+20130426
+	增加query和selectCode loader接口，支持自定义配置
+
+20130426a
+	SelectCodeManager增加getSelectCodeLabel方法
+
+20130508
+	BUG: manager接口继承的方法，如果需要dwr注册，则会注册失败，改为不处理继承方法
+	
+20130514
+	Condition operator增加eqOrIsNull，neOrIsNull
+
+20130516
+	增加静态代码转换配置，可在xml中配置
+
+20130523
+	bug: grid列名不存在时导出excel报错
+
+20130528
+	SelectCodeDefinition增加parentFieldName，combotree控件使用
+
+20130529
+	dao捕捉的乐观锁异常改为StaleObjectStateException
+	
+20130623
+	bug: dao getRowCount方法中result应为Long
+
+20130709
+	bug: DynamicModelClassResultTransformer中覆盖sql查询中的uuid
+	
+20130715
+	CustomBeanWrapper.getPropertyValue增加对DynamicModelClass支持，未完成，后续要处理其他方法
+	
+20130725
+	MySql下代码查询bug修改
+	
+20130731
+	bug: FieldDefinition 空指针
+	
+20130801
+	bug: CommonQueryManager错误修改了selectCode定义中的queryField
+	
+20130828
+	增加StatelessSecurityContextRepository，支持stateless session，需配置applicationContext-security.xml
+	
+20130903
+	TenantAwareDaoAspect移至walle-core
+	
+20130904
+	stateless session cookie 加签名
+
+20130913
+	SelectCodeManager.getSelectCodeValues 对于不存在的代码值，返回代码作为label，避免前台重新查询
+	
+20131022
+	ValidationCodeFilterBean
+	
+29131031
+	UniversalDao.getSysdate() 一秒内不重新查询数据库时间
+	
+20140126
+	CommonQueryManager queryType支持指向到另外的xxxCommonQueryManager处理
+	BaseObjectConverter默认BaseModelClass类型参数为DynamicModelClass，除非是model或者queryItem
+	
+20140204
+	DynamicModelClass超类改为LinkedHashMap
+	增加 dwr DynamicModelConverter，支持details集合
+	
+20140210
+	WalleHttpClient优化
+	增加CommonServiceClient
+	
+20140211
+	JsonFacadeServlet上传文件返回uuid，该uuid应由handler设置在parameters内
+	WalleHttpClient增加上传下载文件功能
+	
+20140215
+	JsonFacadeServlet返回Content-type: application/json
+	
+20140224
+	SelectCodeManager处理grid中多选代码bug修改 
+	
+20140228
+	dwr发布manager接口超类接口的方法
+	
+20140313
+	AcegiUserDetails增加userUuid属性
+	
+20140318
+	Condition.in处理大于1000个的参数值
+	
+20140320
+	增加mongo数据库查询、保存、文件存储通用服务
+	dwr增加新converter，Object类型参数优先转换成Map或者List
+	
+20140322
+	JsonDataUtils支持动态对象，和dwr converter效果类似
+	
+20140327
+	MongoCommonQueryManager支持<>
+	
+20140331
+	生成json和xml数据时忽略groovy动态对象的metaClass属性
+	
+20140504
+	dwr CustomBeanConverter不转换groovy.lang.MetaClass对象
+
+20140524
+	CommonQueryManager去掉不必要的QueryDefinitionLoader判断
+
+20141017
+	SelectCodeDefinition增加iconFieldName
+	优化SelectCodeDefinition的label缓存，相同的queryType和labelFieldName不再重新处理
+	
+	

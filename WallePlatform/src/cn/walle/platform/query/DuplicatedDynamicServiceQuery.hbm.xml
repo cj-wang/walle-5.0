@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="DuplicatedDynamicServiceQuery">
+		<![CDATA[
+
+select t.service_name
+  from wp_dynamic_service t
+ where t.content_type = 'groovy'
+ group by t.service_name
+having count(*) > 1
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

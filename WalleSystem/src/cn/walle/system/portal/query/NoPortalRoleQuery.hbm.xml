@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="NoPortalRoleQuery">
+		<![CDATA[
+
+select t1.role_id,t1.name as role_name from wl_role t1 where t1.role_id not in (select distinct t.role_id from wl_portal_role_portlet t where t.portlet_id = :portletId)
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

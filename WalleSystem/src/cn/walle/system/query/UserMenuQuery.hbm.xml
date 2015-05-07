@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="UserMenuQuery">
+		<![CDATA[
+
+
+select distinct p.user_id,
+                p.func_id,
+                p.func_code,
+                p.name,
+                p.parent_id,
+                p.func_level,
+                p.fun_seq,
+                p.viewname,
+                p.func_img,
+                p.func_type,
+                p.sys,
+		p.remarks
+  from (select *
+          from (select r.user_id,
+                       t.func_id,
+                       t.func_code,
+                       t.name,
+                       t.parent_id,
+                       t.func_level,
+                       t.fun_seq,
+                       t.viewname,
+                       t.func_img,
+                       t.func_type,
+                       t.sys,
+		       t.remarks
+                  from wl_user_func r, wl_function t
+                 where r.func_id = t.func_id
+                union
+                select y.user_id,
+                       j.func_id,
+                       j.func_code,
+                       j.name,
+                       j.parent_id,
+                       j.func_level,
+                       j.fun_seq,
+                       j.viewname,
+                       j.func_img,
+                       j.func_type,
+                       j.sys,
+			j.remarks
+                  from wl_user      y,
+                       wl_user_role u,
+                       wl_role_func i,
+                       wl_function  j
+                 where y.user_id = u.user_id
+                   and u.role_id = i.role_id
+                   and i.func_id = j.func_id) a
+         where a.user_id =:userId) p
+		 order by p.fun_seq
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

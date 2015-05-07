@@ -1,0 +1,114 @@
+Walle Platform
+
+20130416
+	5.0初始版本
+	动态页面配置初始版本
+
+20130418
+	增加用户管理
+
+20130422
+	修复bug：ace editor undomanager not reseted after setValue，use editor.getSession().setValue()
+		https://github.com/ajaxorg/ace/issues/1243
+
+20130424
+	增加在线页面编辑的版本管理
+
+20130426
+	增加查询和编码转换配置功能
+
+20130427
+	菜单和用户管理分级别：平台P、系统S
+
+20130503
+	动态页面设计历史版本分页
+
+20130504
+	动态页面设计窗口默认最大化
+	使用数据库配置的代码，删除code配置文件
+	
+20130508
+	bug: dynamic page comment保存多条
+
+20130509
+	增加动态页面发布功能，发布时保存到release表，同时保存历史
+	动态页面编辑保存时，不再保存历史
+	打开动态页面时，dev模式下取开发板页面；正常模式下取发布版页面，不显示页面编辑按钮
+	
+20130510
+	datagrid toolbar 样式调整
+
+20130514
+	可使用登录名、邮箱、手机号、即时通讯号码登录
+	用户管理更新，增加电话等信息，锁定，通用查询，
+	修改重置密码后再编辑保存报错的bug
+
+20130516
+	增加编码转换配置文件selectCode-platform.xml
+	平台用到的编码改在xml中配置，不再放在数据库，方便发布
+	平台菜单改为js中写死，不再数据库中配置，方便发布
+
+20130520
+	删除wp_user和wp_main_menu表及相关程序，改为system模块统一处理
+	撤销20130516中wp菜单在js写死的处理，改回数据库配置
+	
+20130522
+	getDynamicPageUrl从主页移到walle-platform.js，新窗口打开的页面也可以取到地址再打开动态页面window
+
+20130531
+	停用标签动态配置功能，表和后台程序暂时保留
+	打包增加selectcode配置
+	
+20130608
+	dynamciPageDesign.jsp增加static html
+
+20130614
+	dynamicPageDesign.jsp，static html预览和历史，用iframe保持editor原始格式
+
+20130626
+	pagetype增加按钮和后台服务类型
+
+20130627
+	pagetype增加菜单组类型，修改button为function
+
+20130705
+	多机构用户支持，增加TenantAwareDaoAspect
+
+20130725
+	TenantAwareDaoAspect增加对createCommonQuery拦截
+
+20130801
+	缓存query和selectcode
+	
+20130822
+	TenantAwareDaoAspect移到walle-system
+	dynamicPageWrapper.jsp移到walle-platform
+	
+20140318
+	修复 动态页面配置预览页面不执行js代码 的bug
+	动态页面配置title显示功能名称
+	动态页面配置 增加 保存并调试页面 按钮，在新窗口打开功能页面且支持f12 debug工具
+	
+20140320
+	增加groovy动态服务配置和后台调用服务GroovyServiceManager
+	
+20140524
+	增加GroovyCommonQueryManager
+		前台grid，tree或者combo控件可直接使用GroovyServiceName@groovy作为queryType调用groovy服务查询数据
+		groovy服务中要实现Object query(Object queryInfo)方法，返回QueryData对象
+	
+20140802
+	打包java源码到jar包
+	
+	
+	
+TODO:
+	BUGS:
+		查询tag tree不用connect by
+	FEATURES:
+		增加动态页面管理功能
+		页面所见即所得编辑
+		实体配置
+		国际化配置
+		
+	

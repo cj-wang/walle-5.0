@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="WlPortalRolePortlet.ALL" parent="fieldListDefinition">
+		<constructor-arg>
+			<list>
+				<ref bean="WlPortalRolePortlet.roleId" />
+				<ref bean="WlPortalRolePortlet.portletId" />
+				<ref bean="WlPortalRolePortlet.defaultDisplay" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="WlPortalRolePortlet.rolePortletId" parent="fieldDefinition">
+		<property name="fieldName" value="rolePortletId" />
+		<property name="label" value="rolePortletId" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="false" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalRolePortlet.roleId" parent="fieldDefinition">
+		<property name="fieldName" value="roleId" />
+		<property name="label" value="角色" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalRolePortlet.portletId" parent="fieldDefinition">
+		<property name="fieldName" value="portletId" />
+		<property name="label" value="组件" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="36" />
+		<property name="width" value="200" />
+	</bean>
+
+	<bean id="WlPortalRolePortlet.defaultDisplay" parent="fieldDefinition">
+		<property name="fieldName" value="defaultDisplay" />
+		<property name="label" value="默认显示" />
+		<property name="fieldType" value="string" />
+		<property name="sortable" value="true" />
+		<property name="nullable" value="true" />
+		<property name="length" value="10" />
+		<property name="width" value="100" />
+	</bean>
+
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="ChatUsersQuery">
+		<![CDATA[
+
+select u.*,o.name as orgnize_name 
+from wl_user u 
+join 
+wl_organize o 
+on o.organize_id=u.organize_id 
+where 1=1 
+<<and u.user_id  =:userId>>
+<<and u.organize_id  =:organizeId>>
+<<and u.online_status  =:onlineStatus>>
+<<and u.online_status  !=:offLine>>
+<<and u.name like '%' + :userName + '%'>>
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

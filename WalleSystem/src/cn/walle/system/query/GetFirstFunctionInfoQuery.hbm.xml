@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="GetFirstFunctionInfoQuery">
+		<![CDATA[
+
+select * from WL_FUNCTION s
+where s.parent_id 
+= (
+select  t.func_id
+from WL_FUNCTION t
+<<where t.FUNC_ID = :funcid>>
+) order by s.FUN_SEQ asc
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

@@ -1,0 +1,70 @@
+<#-- CRUD -->
+	${tableName}
+	${packageName}
+	${className}
+	${varName}
+	${pkColumnName}
+	${pkFieldName}
+	${pkFieldType}
+	${pkFieldLength}
+	${implementsOperationLog}
+	${hasDateColumns}
+	${hasLobColumns}
+	${hasVersionColumn}
+	${label}
+	<#list remarkLines as remarkLine>
+
+	<#list columns as column>
+		${column.columnName}
+		${column.fieldName}
+		${column.getterMethodName}
+		${column.setterMethodName}
+		${column.columnType}
+		${column.fieldType}
+		${column.isPK}
+		${column.isVersion}
+
+		${column.label}
+		<#list column.remarkLines as remarkLine>
+
+		${column.nullable}
+		${column.sortable}
+		${column.uiFieldType}
+		${column.length}
+		${column.precision}
+		${column.scale}
+		${column.width}
+
+	</#list>
+<#-- CRUD -->
+
+
+
+<#-- Query -->
+	${packageName}
+	${className}
+	${hasDateColumns}
+	${hasLobColumns}
+	${hasDateParams}
+
+	<#list columns as column>
+		${column.columnName}
+		${column.fieldName}
+		${column.getterMethodName}
+		${column.setterMethodName}
+		${column.columnType}
+		${column.fieldType}
+	</#list>
+
+	<#list params as param>
+		${param.fieldName}
+		${param.getterMethodName}
+		${param.setterMethodName}
+		${param.fieldType}
+	</#list>
+
+	<#list sqlLines as sqlLine>
+		${sqlLine.line}
+	</#list>
+
+<#-- Query -->

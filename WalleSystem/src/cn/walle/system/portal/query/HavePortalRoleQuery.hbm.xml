@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="HavePortalRoleQuery">
+		<![CDATA[
+
+select t.role_portlet_id,t2.name as role_name,t.role_id, t.portlet_id from wl_portal_role_portlet t 
+ left join wl_role t2 on t2.role_id = t.role_id 
+ where t.portlet_id = :portletId
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

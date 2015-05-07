@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="AuthorizedFunctionsQuery">
+		<![CDATA[
+
+select f.*
+  from wl_function f
+ where f.FUNC_TYPE in (:funcTypes)
+ <<and ((f.tenant_id = '1' or f.tenant_id = :tenantId) and (f.sys is null or f.sys = :tenantId))>>
+   and (exists (select 1
+          from wl_user_role ur
+         where ur.role_id = '1'
+           and ur.user_id = :userId)
+    or exists (select 1
+          from wl_user_role ur, wl_role_func rf
+         where ur.role_id = rf.role_id
+           and ur.user_id = :userId
+           and rf.func_id = f.func_id)
+    or exists (select 1
+          from wl_user_func uf
+         where uf.user_id = :userId
+           and uf.func_id = f.func_id))
+ order by f.fun_seq
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

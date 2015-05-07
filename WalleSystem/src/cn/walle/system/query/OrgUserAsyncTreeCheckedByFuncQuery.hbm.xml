@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="OrgUserAsyncTreeCheckedByFuncQuery">
+		<![CDATA[
+
+/*第一次查询，取出非叶节点org的用户，直接列出*/
+select u.user_id as id,
+       u.name as name,
+       concat('org__', u.organize_id) as parent_id,
+       (select 'true'
+          from wl_user_func uf
+         where u.user_id = uf.user_id
+           and uf.func_id = :funcId) as checked,
+       'open' as node_state,
+       1 as type_order
+  from wl_user u
+ where state <> 'S'
+   and (:parentId is null or :parentId = '')
+   and u.organize_id in
+       (select o.organize_id
+          from wl_organize o
+         where exists (select 1
+                  from wl_organize oo
+                 where o.organize_id = oo.parent_organize_id))
+ <<and u.tenant_id = :tenantId>>
+
+union all
+
+/*第一次查询，取出所有org，叶节点为closed*/
+select concat('org__', o.organize_id) as id,
+       o.name as name,
+       concat('org__', o.parent_organize_id) as parent_id,
+       null as checked,
+       (select 'closed'
+          from dual
+         where not exists
+         (select 1
+                  from wl_organize oo
+                 where o.organize_id = oo.parent_organize_id)) as node_state,
+       2 as type_order
+  from wl_organize o
+ where state='U'
+   and (:parentId is null or :parentId = '')
+ <<and o.tenant_id = :tenantId>>
+
+union all
+
+/*展开叶节点时，加载org下用户*/
+select u.user_id as id,
+       u.name as name,
+       concat('org__', u.organize_id) as parent_id,
+       (select 'true'
+          from wl_user_func uf
+         where u.user_id = uf.user_id
+           and uf.func_id = :funcId) as checked,
+       'open' as node_state,
+       1 as type_order
+  from wl_user u
+ where state <> 'S'
+   and u.organize_id = substr(:parentId, 6)
+ <<and u.tenant_id = :tenantId>>
+
+order by type_order, name
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

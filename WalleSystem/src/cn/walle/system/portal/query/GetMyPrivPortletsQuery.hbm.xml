@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="GetMyPrivPortletsQuery">
+		<![CDATA[
+
+select * from wl_portal_portlet t 
+where t.portlet_id in 
+(select portlet_id from wl_portal_role_portlet where role_id in 
+(select role_id from wl_user_role where user_id=:userId))
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

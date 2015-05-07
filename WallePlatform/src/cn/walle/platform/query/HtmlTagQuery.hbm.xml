@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="HtmlTagQuery">
+		<![CDATA[
+
+select t.*
+  from wp_html_tag t
+ start with t.url = :url
+        and t.tag_id = :tagId
+connect by t.parent_uuid = prior t.uuid
+ order by t.parent_uuid, t.seq
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

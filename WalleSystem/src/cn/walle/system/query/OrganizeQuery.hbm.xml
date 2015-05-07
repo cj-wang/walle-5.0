@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="OrganizeQuery">
+		<![CDATA[
+
+select *
+from WL_ORGANIZE t
+where t.PARENT_ORGANIZE_ID !='0' and  t.PARENT_ORGANIZE_ID !='1'
+order by EX1 asc
+		]]>
+	</sql-query>
+</hibernate-mapping>

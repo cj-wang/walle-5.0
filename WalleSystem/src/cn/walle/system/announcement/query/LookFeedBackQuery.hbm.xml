@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="LookFeedBackQuery">
+		<![CDATA[
+
+
+select * from OA_USER_ANNOUNCEMENT oua where 1=1 and oua.feed_status='1'
+<<and oua.ANNOUNCEMENT_ID=:announcementId>>
+
+		]]>
+	</sql-query>
+</hibernate-mapping>
