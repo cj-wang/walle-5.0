@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>jQuery prettyDate Test</title>
+	<link rel="stylesheet" href="../libs/jquery.qunit/qunit/qunit.css">
+	<script src="../libs/jquery.qunit/qunit/qunit.js"></script>
+	<script src="../libs/jquery.js"></script>
+	<script src="../jquery.prettydate.js"></script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+		<!-- Now: 2008-01-28 22:25:00.000 UTC -->
+		<div id="main">
+			<a title="2012-01-01T00:00:00Z">fallback</a>
+			<a title="2008-01-28T22:24:30Z">fallback</a>
+			<a title="2008-01-28T22:23:05Z">fallback</a>
+			<a title="2008-01-28T22:20:05Z">fallback</a>
+			<a title="2008-01-28T20:24:17Z">fallback</a>
+			<a title="2008-01-27T08:00:00Z">fallback</a>
+			<a title="2008-01-26T08:00:00Z">fallback</a>
+			<a title="2008-01-21T08:00:00Z">fallback</a>
+			<a title="2008-01-14T08:00:00Z">fallback</a>
+			<a title="2007-12-28T08:00:00Z">fallback</a>
+			<a title="2007-12-15T08:00:00Z">fallback</a>
+			<a title="2007-01-14T08:00:00Z">fallback</a>
+			<a title="2006-03-07T08:00:00Z">fallback</a>
+		</div>
+		<div id="alternate">
+			<a data-mytimestamp="2008-01-28T20:24:17Z">fallback</a>
+		</div>
+	</div>
+	<script src="jquery.prettydate.test.js"></script>
+</body>
+</html>
