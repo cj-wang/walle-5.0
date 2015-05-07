@@ -1,0 +1,480 @@
+Walle Easyui
+
+20130416
+	5.0初始版本
+
+20130418
+	tree和grid支持html定义数据，原型设计时使用
+	menu改为inline
+
+20130418a
+	tree和grid如果通过html定义数据，不再进行查询操作，防止原型设计时报错
+	TODO: grid静态数据似乎没有绑定事件，行单击双击无反应
+
+20130419
+	修复1.2.4 js与1.3 css兼容性问题，panel-tool
+
+20130422
+	tree增加stateField属性，后台查询返回结果中表示节点开关状态的列名，该列的值应该为'open'或者'closed'。可支持异步加载节点数据，
+		如果某一节点该列的值为closed，展开该节点触发再次查询，并会传递参数' parentId'值为当前节点id。
+		具体使用方法参见api文档
+	tree增加checkedField属性，后台查询返回结果中表示选中状态的列名，该列的值应该为'true'或者null
+
+20130422a
+	修复bug：grid静态数据似乎没有绑定事件，行单击双击无反应
+		由于之前修改datagrid bindEvents方法，使用delegate加快速度，导致tbody指定的数据行无法响应单击和双击事件，
+		原因未具体分析，此处修改必要性不大，故改回easyui原始版本
+	修复bug：grid右键菜单在ie和chrome下显示异常
+	
+20130423
+	datagrid和tree增加html属性queryFields
+
+20130424
+	修复bug：grid in tab，auto fitColumnWidth not working
+	修改datagrid单击行的处理，单选状态时单击行不再取消选中
+	修复bug：window嵌套window打开后定位错误
+
+20130426
+	combogrid支持从SELECT_CODE_DEFINITIONS直接读取显示列配置
+
+20130502
+	linkbutton禁用后同时禁用jquery绑定的click事件
+	
+20130503
+	修复window定位bug
+
+20130503a
+	textarea只读时灰色背景
+	
+20130504
+	阻止window移出父容器
+
+20130506
+	增加所有1.3.2主题
+
+20130508
+	修改css，修复window中grid header checkbox位移问题
+
+20130510
+	datagrid和tree commonQuery时保留options的queryFields
+	datagrid右键菜单在表头也可触发，没数据时也可刷新
+	datagrid onclickcell 触发编辑，cell直接获得焦点
+	datagrid toolbar样式固定高度，否则layout高度计算错误
+	datagrid 增加readOnly属性和方法
+
+20130513
+	datagrid refreshSavedData 后台无值的列，赋值为undefined，否则updateRow不刷新该列的值
+
+20130514
+	dwr遮罩z-index改为1000000，cause easyui window z-index gt 9000
+
+20130515
+	修改datagrid在ie7下不查询的bug
+	datagrid readOnly属性和方法改为readonly
+	combo blur bug：新焦点在combo panel内的话不hide panel
+	searchbox增加reset按钮
+	
+20130516
+	datagrid新增行编辑时focus第一列
+	修复bug: 密码无法删除
+	grid 增加resetSort方法，右键菜单增加默认排序选项
+	datagrid 和combogrid 的 column支持sortable false
+
+20130521
+	增加$.messager.toast方法，显示自动关闭的提示框
+	修复1.3.2 progressbar css
+	
+20130523
+	$.messager.toast样式修改
+	
+20130528
+	封装combotree，后台selectCode配置增加parentFieldName，前台用法同combobox和combogrid，
+
+20130529
+	combotree优化
+		del和backspace可清空
+		多选状态时，单击行不关闭panel
+		加载数据后，缓存代码
+		
+20130531
+	5个combo类型控件，下箭头show panel
+
+20130604
+	忘却的纪念
+	numberbox和datagrid下td增加format属性，格式与Java DecimalFormat相同，格式化数字显示与输入
+	
+20130605
+	window初始最小坐标从0改为10，防止靠边
+	datagrid点击行编辑时，焦点直接定位到cell
+	textarea border样式同input
+	TODO: 20130508对css修改导致问题，回复修改，待解决
+	
+20130609
+	css修改，所有字体
+
+20130618
+	tree增加getHalfChecked方法， 取得半选中状态的父节点
+
+20130623
+	password控件格式优化
+	tree getChanges bug fixed
+	tree add event onBeforeCheck. Can return false to prevent the check event
+
+20130624
+	dnd bug: chrome下mouse down就会触发move动作，fixed
+
+20130627
+	linkbutton增加权限控制，调用全局函数checkFunctionAuthorization判断权限
+	form clear bug, 没有清空data，fixed
+	datebox & datetimebox bug, extend default 导致keyHandler.query丢失，无法清空值，fixed
+	
+20130701
+	简化全局字体css，提高效率
+	
+20130702
+	tree和combotree的fields参数，默认值为easyui原始参数,id,text,state,checked
+
+20130708
+	bug: grid编辑器初始化时，combo配置信息有可能还没有返回，在initDatagridEditors方法里setTimeout等待
+
+20130719
+	页面禁右键菜单
+	tree增加reloadAndSelect方法，用户新增数据后刷新并自动选中新节点（修改数据的情况下，reload后会自动选中之前选中的id）
+
+20130724
+	tree增加iconClsField
+
+20130731
+	treegrid
+		增加事件onSelect(id), onUnselect(id)
+		增加方法reloadAndSelect 
+		增加类似datagrid的resetOperation处理
+		后台返回的数据parentId不存在时作为根节点处理
+	font-family去掉Tahoma,Verdana，使IE input内字体和chrome一致
+
+20130801
+	样式优化
+
+20130808
+	boot theme
+
+20130813
+	boot theme 优化
+
+20130819
+	combotree不能编辑
+	numberbox可粘贴
+	
+20130821
+	增加tooltip 插件
+	
+20130821a
+	menu自适应位置，增加fixPosition方法 
+
+20130829
+	优化tooltip
+
+20130902
+	所有控件增加bind方法，用于绑定事件处理函数
+	combogrid下拉总是刷新数据
+	combo focus不再自动show panel
+
+20130906
+	combo showPanel和hidePanel如果已经打开或者关闭则不做动作，否则会触发事件
+	3个combo控件增加onReady事件，控件完全初始化后触发
+
+20130910
+	combo支持placeholder
+
+20130911
+	tree bug, 拖动节点丢失孙子
+
+20130912
+	bug: combogrid联想输入会发起两次查询，showpanel触发的查询改在arrow click时触发
+	grid editor width 修正
+
+20130916
+	优化boot theme
+
+20130918
+	所有浏览器支持placeholder，增加jquery-plugins/jquery.placeholder.js
+	tooltip定义从jquery.easyui-1.2.4.js中拿出，独立文件jquery-plugins/jquery.tooltip.js
+
+20130922
+	combo控件disable不管用的bug修复
+	修正placeholder在IE10的字体颜色
+	bug: 控件bind方法绑定的事件，事件处理函数的返回值丢失
+
+20130924
+	grid row hover效果不再用event处理，改为css :hover
+	tree node hover改为css :hover
+
+20130926
+	bug: grid header resize triggers resorting
+	bug: grid getselected 会查找到toolbar中的combogrid中的选中行
+	修改panel overflow为visible
+	优化window位置
+	tooltip css从easyui.css中拿出，独立文件jquery-plugins/jquery.tooltip.css
+	validatebox的提示改为tooltip实现
+	bug: validatebox在grid中显示不了不合法的红框
+	boot theme去掉IE输入框里的x
+	
+20130929
+	bug: combo with a placeholder auto pops when focused in IE10
+	优化firefox中combo输入汉字的处理
+	combobox和combogrid支持esc键恢复原值
+
+20130930
+	增加combo-multi class，扩展combo控件为多选列表，类似gmail收件人的效果（未完成form setdata和getdata修改）
+		<input name="onlookers" title="围观" class="easyui-combogrid combo-user combo-multi" codetype="TaskUsers" colspan="3"/> 		
+	
+20131010
+	validatebox tooltip bug修改
+	combo 事件处理优化
+	form setData和getData修改，checkbox可使用attr on/off/value，支持多个值
+	form setData和getData和getQueryFields修改，支持combo-multi
+	combo增加方法 getComboMultiValues & setComboMultiValues，支持combo-multi
+	combo-multi支持拖拽调整顺序
+	menu和combobox用css实现hover
+
+20131012
+	grid 所有列都没有编辑器时，自动设为readonly，select时不再处理行编辑
+	treegrid缓存tr、data、selectedId，避免dom查找
+	treegrid事件绑定优化
+	datagrid-row-seleted查找改为children查找，提高效率，也防止找到toolbar或者editor中的combogrid选中的行
+	atagrid-row-index查找改为eq，提高效率，并且防止找到editor中的行 
+	datagrid事件绑定优化
+
+20131013
+	grid编辑性能优化
+	控件初始化过程优化
+
+20131014
+	bug修改
+	grid初始化立即init editors
+	grid初始化时调整列宽只执行一次
+	combo控件初始化之前被调用，会延时执行，不再预先初始化
+	
+20131015
+	回滚：combo控件初始化之前被调用，会延时执行，不再预先初始化
+		因为无法立即执行，无法返回值，程序行为与预期不符
+	优化combo初始化过程，尽量减少重复初始化
+	ajax页面脚本异步加载，等待combo初始化完。ajaxPageWrapper.jsp同时修改
+	优化grid自动列宽
+	去掉panel打开时触发内部控件resize，尤其提高tab切换速度，不确定是否有不良影响
+	tabs增加showHeader参数，默认true，设为false可用来模拟页面跳转效果
+
+20131025
+	控件性能优化，tabs, datebox，combo
+	在选择的文本上和输入框里放开右键菜单，用于复制粘贴
+	grid和combogrid初始化不加载数据
+	
+20131029
+	页面加载时，防止绑定事件造成控件多次初始化
+	datagrid初始化时不再两次init panel
+	treegrid初始化不加载数据
+	grid request 优化
+	
+20131030
+	grid fitColumnSize bug修复
+	combogrid显示...的bug修复
+	
+20131101
+	优化form自动调整高度
+	优化layout布局
+	
+20131104
+	fix bug：combobox值列表中有'+'时，选择错误
+	优化combo，初始化时默认宽度，不需要resize
+	
+20131105
+	修复searchbox+placeholder bug
+	初始化combogrid，不生成grid，需要时再生成
+	初始化combobox，不加载数据
+	去掉searchbox的x按钮
+
+20131221
+	grid checkbox居中
+	grid footer不显示rownumber和checkbox
+	grid 按住ctrl点列头可多列排序
+
+20131227
+	列头排序点一次正序，二次反序，三次清除，ctrl多列排序同样处理
+
+20140120
+	grid和tree兼容原生使用方法
+	
+20140204
+	bug: datagrid getChanges with arg type always returns []
+
+20140207
+	bug：datagrid loadData加载footer无法显示
+	20131221 grid footer不显示rownumber和checkbox，
+		该问题是因为未调用onAfterRender，恢复默认处理，不使用css
+
+20140208
+	checkbox和radio样式恢复默认
+
+20140216
+	jquery.iframe-post-form.js 返回json时读取text而不是html，避免读到<pre>标签
+
+20140217
+	panel增加参数iconUrl，直接指定图标地址，不通过iconCls
+
+20140218
+	grid无queryType不查询，只针对新框架用法
+	combo setValue支持数字
+
+20140220
+	boot css中.datagrid-cell设置固定高度改为设置min-height
+	
+20140227
+	修复bug：tab iconUrl刷新后样式错误
+	修复firefox右键bug
+	
+20140228
+	修复bug，combo控件lazyload导致combogrid查询失败的bug
+	修复bug：form validate
+	修复bug：grid 自定义 combo editor 无法开始编辑
+	required不自动加validatebox class，会影响combo控件
+	combo控件不再初始白色隐藏，有时无法恢复，后续再处理吧
+	bug: grid formquery textarea
+	
+20140302
+	增加prettydate
+	
+20140306
+	boot css toolbar和form padding减少
+
+20140311
+	easyui window在iframe内居中
+
+20140312
+	combo-multi 非boot样式优化
+	grid右键菜单增加隐藏列功能
+	
+20140313
+	bug: tab中grid双击转到另一tab，grid行消失 jquery.easyui.walle.js 4025
+	menu显示时移动到body下
+	
+20140320
+	tree reload 保持之前折叠和选中状态 
+	
+20140321
+	datetimebox设置纯日期bug修复
+	
+20140324
+	grid group fields编辑时列错乱的bug修改，但是仍不支持分组列直接编辑
+	grid增加checkbox参数，是否显示行checkbox，默认true
+	grid frozen columns 支持html中定义，修复bugs
+	menu onClick return false的话menu不隐藏
+	grid右键显示列改为多选，每次选择不隐藏menu
+	grid编辑后修改过的cell显示黄色背景
+	修改grid多行表头编辑时bug
+	
+20140325
+	grid group算法bug修复
+	取消grid非boot样式固定18px行高
+	解决tooltip和title同时使用的问题，不使用title作为替代tooltip（jquery.tooltip.js）
+	tooltip和validatebox验证提示可同时显示
+	
+20140327
+	修复20140324版本导致的bug
+		grid getSelections得到2倍结果
+		grid appendRow不能自动开始编辑
+	全键盘操作支持
+		按钮快捷键，在a上加属性key，ctrl+key选择
+			<a id="btnQuery" class="easyui-linkbutton" iconCls="icon-search" key="Q">查询</a>
+		tab快捷键，在tab panel上加属性key，ctrl+key选择
+			<div id="tabs" class="easyui-tabs" fit="true">
+				<div title="Tab1" iconCls="icon-edit" key="M">
+				</div>
+				<div title="Tab1" iconCls="icon-edit" key="P">
+				</div>
+			</div>
+		messager打开时设置第一个按钮获得焦点，支持回车、空格、esc，tab跳到下一个按钮
+		messager按钮增加默认键盘快捷键
+		grid内编辑时，支持ctrl+上下左右箭头移动焦点
+	
+20140328
+	解决combogrid直接输入或粘贴触发两次查询的bug
+	解决上一版本导致的grid insertRow不带index参数时空指针的bug
+	
+20140329
+	日期时间控件辅助录入
+	
+20140401
+	ctrl加上下箭头不触发combo的事件，防止与grid跳格冲突
+	combogrid查询不预先设置空值，防止查询未返回时getValue取到空值（grid endEdit）
+	combogrid查询timer未启动即blur不等待查询结果的bug
+	grid编辑行点击后end edit的bug
+	
+20140403
+	增加home.png 
+	
+20140408
+	combo方法调用时预加载
+	contentEditable元素不禁用backspace
+	
+20140410
+	combo*初始化继承combo控件属性
+	修复combobox loadData()后showPanel数据丢失的bug
+	
+20140413
+	修复bug：combo customValuePermitted=true， getValue取值错误
+	修复bug：combobox第一次直接输入查询被重置
+	
+20140414
+	修复bug：日期时间控件在firefox不能输入和删除
+	
+20140415
+	grid checkbox边框触发checkbox点击，不触发行选中
+	grid checkbox 在ie编辑行时显示bug
+	
+20140417
+	修复bug，20140329 datebox blur调整日期值未判断IE8下panel内获得焦点的情况，导致重新选择日期时setValue成原值
+	
+20140704
+	Independence Day
+	修复bug：combogrid当前代码不在第一页时下拉后值被清空
+	
+20140830
+	修复bug：combogrid当前代码不在第一页时下拉后值被清空，之前修改版本customValuePermitted时仍然有此bug。
+	本次修改后，query不再设置空值，可能有负面影响，待测试
+	
+20141125
+	boot css 按钮样式改为Bootstrap3
+	boot css 按钮增加：btn-primary, btn-success, btn-info, btn-warning, btn-danger
+	
+20141204
+	boot css 按钮增加btn-link
+	boot css grid中链接样式修改
+	form支持rowspan
+	img右键菜单放开
+	升级jquery.numberformatter-1.2.4.js，解决百分比显示时的bug
+	
+20141211
+	支持grid th标签内直接写链接等内容，自动输出到每一行对应列中，支持${value}引用当前单元格value
+	分页栏改为boot样式
+	修改boot css，选中，hover都改为boot3颜色
+	优化progressbar样式
+	
+20141216
+	grid增加属性showSelection，默认true，false时不高亮显示选中行，配合行内链接更符合网页风格
+	grid可排序列头改为链接
+	
+20150104
+	grid th标签内直接写链接等内容时，${value}引用当前单元格value，格式与EL冲突，改为$value
+	boot样式下tab页和window的关闭按钮加大
+	修改window shadow样式为boot3
+	去掉boot样式中各控件自定义的字体大小，统一使用全局大小
+	
+	
+TODO:
+	grid auto size columns when end edit
+		
+	
+	
+	
+	
+	
