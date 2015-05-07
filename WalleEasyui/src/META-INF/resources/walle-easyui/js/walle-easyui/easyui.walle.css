@@ -1,0 +1,230 @@
+
+body{
+	margin:0px;
+}
+
+*{
+	font-size:12px;
+	font-family:微软雅黑,新宋体;
+}
+/*Tahoma,Verdana,*/
+/*
+[style*="font-size"] *{
+	font-size : inherit;
+}
+
+[style*="font-family"] *{
+	font-family : inherit;
+}
+*/
+
+/* used by HTML5 Placeholder jQuery Plugin (jquery.placeholder.js) */
+.placeholder {
+	color: #aaa !important;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+	color: #aaa;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	color: #aaa;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	color: #aaa;
+}
+
+tr[datagrid-row-index], tr[node-id], .datagrid-header tr{
+	height:25px;
+}
+
+.datagrid-cell,
+.datagrid-cell-group,
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  height: auto;
+}
+
+.combobox-item{
+	height:16px;
+}
+
+input{
+	width:157px;
+	height:20px;
+	border:1px solid #95B8E7;
+	padding:0px;
+	margin:0px;
+}
+
+input.combo-text{
+	width:135px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	width : auto;
+	height : auto;
+	margin : 0;
+	border: 0;
+}
+
+textarea{
+	border:1px solid #95B8E7;
+	padding:0px;
+	margin:0px;
+	resize: none;
+}
+
+input.datagrid-editable-input{
+	height:16px;
+	margin:0px;
+}
+
+input[disabled], textarea[disabled]{
+	background:#F5F5F5;
+}
+
+input[readonly], textarea[readonly]{
+	background:#FCFCFC;
+}
+
+input.combo-text[disabled]:not([_disabled]), input.combo-text[readonly]:not([_disabled]) {
+	background:#FFFFFF;
+}
+
+.panel {
+	overflow: visible;
+}
+
+.window {
+	overflow: visible;
+}
+
+.window-mask {
+	position: fixed;
+}
+
+/* .dialog-button{ */
+/* 	text-align:center; */
+/* } */
+
+.easyui-numberbox{
+	text-align:right;
+}
+
+.datagrid-editable table[align='right'] input.datagrid-editable-input{
+	text-align:right;
+}
+
+.datagrid-header-check,
+.datagrid-cell-check {
+	padding: 6px 0 0 0;
+}
+
+.datagrid-cell-modified{
+	color: #000;
+	background-color: #ffb;
+}
+
+.menu-sep {
+  height: 0px;
+}
+
+.clear-input{
+	background:url('images/clear-input.png') no-repeat center center;
+	width:18px;
+	height:20px;
+	overflow:hidden;
+	display:inline-block;
+	vertical-align:top;
+	cursor:pointer;
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+.clear-input:hover{
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+
+/* progressbar */
+.progressbar-value{
+	background-color:#FBEC88;
+	position:static;
+}
+
+ul.pagination {
+  display: inline-block;
+  padding-left: 5px;
+  margin: 2px 0;
+  border-radius: 4px;
+}
+ul.pagination > li {
+  display: inline;
+}
+ul.pagination > li > a,
+ul.pagination > li > span {
+  width: 24px;
+  height: 19px;
+  padding-top: 5px;
+  text-align: center;
+  position: relative;
+  float: left;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #428bca;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+ul.pagination > li > a:not(.p-page) {
+  font-size: 18px;
+  padding-top: 0;
+  height: 24px;
+}
+ul.pagination > li:first-child > a,
+ul.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+ul.pagination > li:last-child > a,
+ul.pagination > li:last-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+ul.pagination > li > a:hover,
+ul.pagination > li > span:hover,
+ul.pagination > li > a:focus,
+ul.pagination > li > span:focus {
+  color: #2a6496;
+  background-color: #eee;
+  border-color: #ddd;
+}
+ul.pagination > .active > a,
+ul.pagination > .active > span,
+ul.pagination > .active > a:hover,
+ul.pagination > .active > span:hover,
+ul.pagination > .active > a:focus,
+ul.pagination > .active > span:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+ul.pagination > .disabled > span,
+ul.pagination > .disabled > span:hover,
+ul.pagination > .disabled > span:focus,
+ul.pagination > .disabled > a,
+ul.pagination > .disabled > a:hover,
+ul.pagination > .disabled > a:focus {
+  color: #777;
+  cursor: default;
+  background-color: #fff;
+  border-color: #ddd;
+}

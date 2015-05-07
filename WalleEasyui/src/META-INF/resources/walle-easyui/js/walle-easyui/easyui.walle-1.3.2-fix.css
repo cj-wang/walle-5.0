@@ -1,0 +1,37 @@
+
+/* 修复1.2.4 js与1.3 css兼容性问题 */
+
+/* 1.3中panel tool为a，而1.2.4中为div */
+.panel-tool div {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  margin: 0 0 0 2px;
+  vertical-align: top;
+  cursor: pointer;
+}
+.panel-tool div:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  /*background-color: #eaf2ff;*/
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+
+/* 原值为10000，导致window中的grid的header的checkbox位置偏移，待确认这样修改是否有其他影响 */
+/* 导致问题：横竖滚动条都出现时，横向滚动条拖到最右边时header错位 */
+/*
+.datagrid-header-inner {
+    width: 0px;
+}
+*/
+
+/* 固定高度，否则layout控件高度计算错误 */
+.datagrid-toolbar {
+	height:26px;
+}
+
