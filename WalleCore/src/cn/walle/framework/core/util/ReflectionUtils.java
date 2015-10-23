@@ -114,7 +114,7 @@ public class ReflectionUtils {
 					org.objectweb.asm.Type[] types = org.objectweb.asm.Type.getArgumentTypes(desc);
 					Class<?>[] parameterTypes = new Class<?>[types.length];
 					for (int i = 0; i < types.length; i++) {
-						parameterTypes[i] = org.springframework.util.ClassUtils.forName(types[i].getClassName());
+						parameterTypes[i] = org.springframework.util.ClassUtils.forName(types[i].getClassName(), null);
 					}
 					
 					method = clazz.getDeclaredMethod(name, parameterTypes);
@@ -444,7 +444,7 @@ public class ReflectionUtils {
 					org.objectweb.asm.Type[] types = org.objectweb.asm.Type.getArgumentTypes(desc);
 					Class<?>[] parameterTypes = new Class<?>[types.length];
 					for (int i = 0; i < types.length; i++) {
-						parameterTypes[i] = org.springframework.util.ClassUtils.forName(types[i].getClassName());
+						parameterTypes[i] = org.springframework.util.ClassUtils.forName(types[i].getClassName(), null);
 					}
 					
 					Method method = clazz.getDeclaredMethod(name, parameterTypes);

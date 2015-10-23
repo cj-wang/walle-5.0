@@ -117,4 +117,6 @@ Walle Core
 	SelectCodeDefinition增加iconFieldName
 	优化SelectCodeDefinition的label缓存，相同的queryType和labelFieldName不再重新处理
 	
+20151023
+	fix conflicts with Spring 4
 	
