@@ -261,7 +261,19 @@ public class Condition {
 	
 	public static Condition operator(String propertyName, String operator, Object value) {
 		propertyName = SqlUtils.convertAllJavaNamesToDbNames(propertyName);
-		if ("eqOrIsNull".equalsIgnoreCase(operator.trim())) {
+		if ("eq".equalsIgnoreCase(operator.trim())) {
+			return Condition.eq(propertyName, value);
+		} else if ("ne".equalsIgnoreCase(operator.trim())) {
+			return Condition.ne(propertyName, value);
+		} else if ("lt".equalsIgnoreCase(operator.trim())) {
+			return Condition.lt(propertyName, value);
+		} else if ("le".equalsIgnoreCase(operator.trim())) {
+			return Condition.le(propertyName, value);
+		} else if ("gt".equalsIgnoreCase(operator.trim())) {
+			return Condition.gt(propertyName, value);
+		} else if ("ge".equalsIgnoreCase(operator.trim())) {
+			return Condition.ge(propertyName, value);
+		} else if ("eqOrIsNull".equalsIgnoreCase(operator.trim())) {
 			return Condition.eqOrIsNull(propertyName, value);
 		} else if ("neOrIsNull".equalsIgnoreCase(operator.trim())) {
 			return Condition.neOrIsNull(propertyName, value);
@@ -275,6 +287,8 @@ public class Condition {
 				value = ((List<?>) value).toArray();
 			}
 			return Condition.notIn(propertyName, (Object[]) value);
+		} else if ("like".equalsIgnoreCase(operator.trim())) {
+			return Condition.like(propertyName, value);
 		} else if ("likeStart".equalsIgnoreCase(operator.trim())) {
 			return Condition.likeStart(propertyName, value);
 		} else if ("likeEnd".equalsIgnoreCase(operator.trim())) {

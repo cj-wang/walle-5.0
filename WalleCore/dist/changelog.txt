@@ -120,3 +120,7 @@ Walle Core
 20151023
 	fix conflicts with Spring 4
 	
+20160317
+	Condition支持前台传eq/ne等操作符
+	
+	
