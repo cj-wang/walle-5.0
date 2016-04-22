@@ -125,4 +125,7 @@ Walle Core
 	
 20160422
 	CommonSaveManager generic
+	
+20160422a
+	CommonSaveManager generic type BaseModel
 

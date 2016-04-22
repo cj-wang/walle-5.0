@@ -3,10 +3,10 @@ package cn.walle.framework.common.service;
 import java.util.Collection;
 import java.util.List;
 
-import cn.walle.framework.core.model.BaseModelClass;
+import cn.walle.framework.core.model.BaseModel;
 import cn.walle.framework.core.service.BaseManager;
 
-public interface CommonSaveManager<M extends BaseModelClass> extends BaseManager {
+public interface CommonSaveManager<M extends BaseModel> extends BaseManager {
 
 	M save(M model);
 
