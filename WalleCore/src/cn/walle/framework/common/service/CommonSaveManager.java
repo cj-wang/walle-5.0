@@ -6,16 +6,16 @@ import java.util.List;
 import cn.walle.framework.core.model.BaseModelClass;
 import cn.walle.framework.core.service.BaseManager;
 
-public interface CommonSaveManager extends BaseManager {
+public interface CommonSaveManager<M extends BaseModelClass> extends BaseManager {
 
-	 BaseModelClass save(BaseModelClass model);
+	M save(M model);
 
-	 List<BaseModelClass> saveAll(Collection<BaseModelClass> models);
-	
-	List<BaseModelClass> saveTreeData(Collection<BaseModelClass> models, String idField, String parentField);
+	List<M> saveAll(Collection<M> models);
 
-	 void remove(BaseModelClass model);
+	List<M> saveTreeData(Collection<M> models, String idField, String parentField);
 
-	 void removeAll(Collection<BaseModelClass> models);
+	void remove(M model);
+
+	void removeAll(Collection<M> models);
 
 }

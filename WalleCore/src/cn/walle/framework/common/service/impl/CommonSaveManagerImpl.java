@@ -10,7 +10,7 @@ import cn.walle.framework.core.model.BaseModelClass;
 import cn.walle.framework.core.service.impl.BaseManagerImpl;
 
 @Service
-public class CommonSaveManagerImpl extends BaseManagerImpl implements CommonSaveManager {
+public class CommonSaveManagerImpl extends BaseManagerImpl implements CommonSaveManager<BaseModelClass> {
 
 	@Override
 	public BaseModelClass save(BaseModelClass model) {

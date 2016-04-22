@@ -123,4 +123,6 @@ Walle Core
 20160317
 	Condition支持前台传eq/ne等操作符
 	
-	
+20160422
+	CommonSaveManager generic
+
